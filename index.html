@@ -166,18 +166,23 @@
         <section class="section location" aria-labelledby="location-title">
           <p class="section-kicker">Location</p>
           <h2 id="location-title">오시는길</h2>
-          <p class="venue-name">JK아트컨벤션 그랜드홀</p>
+          <p class="venue-name">
+            <strong>JK아트컨벤션</strong>
+            <span>그랜드홀</span>
+          </p>
           <div class="address-line">
             <p class="address">서울 영등포구 문래로 164 SK리더스뷰 4층</p>
             <button
               class="address-copy icon-button"
               type="button"
               data-copy="서울 영등포구 문래로 164 SK리더스뷰 4층 JK아트컨벤션"
+              data-copy-message="주소를 복사했습니다."
               aria-label="주소 복사"
             >
               <span class="copy-icon" aria-hidden="true"></span>
             </button>
           </div>
+          <a class="venue-tel" href="tel:0226289100">Tel 02-2628-9100</a>
           <div
             class="map-preview"
             data-naver-map
@@ -215,13 +220,46 @@
             </a>
           </div>
           <dl class="transport-list">
-            <div>
-              <dt><span aria-hidden="true">🚇</span> 지하철</dt>
-              <dd>문래역 인근, 상세 동선은 지도앱을 확인해 주세요</dd>
+            <div class="transport-card transport-card--highlight">
+              <dt>무료 셔틀버스 운행</dt>
+              <dd>2호선 문래역 <mark>4번출구 뒤쪽</mark> 셔틀버스 운행</dd>
             </div>
-            <div>
+            <div class="transport-card">
+              <dt><span aria-hidden="true">🚇</span> 지하철</dt>
+              <dd>
+                <strong>2호선 문래역 하차</strong>
+                <span>도보이용: 5번출구에서 전방 직진 300m</span>
+              </dd>
+            </div>
+            <div class="transport-card">
+              <dt><span aria-hidden="true">🚌</span> 버스</dt>
+              <dd>
+                <strong>문래역 정류장 하차</strong>
+                <span>
+                  <span class="bus-route"><em>지선</em> 6211, 6625</span>
+                  <span class="bus-route"><em class="bus-badge--blue">간선</em> 641</span>
+                  <span class="bus-route"><em>마을</em> 영등포12</span>
+                </span>
+                <strong>문래주민센터 / 영일시장·록스 정류장 하차</strong>
+                <span><span class="bus-route"><em>마을</em> 영등포05</span></span>
+                <strong>벽산메가트리움APT 정류장 하차</strong>
+                <span><span class="bus-route"><em>지선</em> 6516</span></span>
+              </dd>
+            </div>
+            <div class="transport-card">
+              <dt><span aria-hidden="true">🚗</span> 자가용</dt>
+              <dd>
+                <strong>목적지</strong>
+                <span>· JK아트컨벤션</span>
+                <span>· 문래동 SK리더스뷰</span>
+                <strong>주소</strong>
+                <span><em class="address-badge">도로명</em> 서울 영등포구 문래로 164</span>
+                <span><em class="address-badge">지번</em> 서울 영등포구 문래동 3가 55-16</span>
+              </dd>
+            </div>
+            <div class="transport-card">
               <dt><span aria-hidden="true">🅿️</span> 주차</dt>
-              <dd>SK리더스뷰 주차장 이용</dd>
+              <dd>SK리더스뷰 주차장 이용, 주차요원의 안내를 받으세요.</dd>
             </div>
           </dl>
         </section>

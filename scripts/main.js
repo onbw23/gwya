@@ -277,7 +277,7 @@ async function copyText(text, successMessage) {
 
 document.querySelectorAll("[data-copy]").forEach((button) => {
   button.addEventListener("click", () => {
-    copyText(button.dataset.copy, "계좌번호를 복사했습니다.");
+    copyText(button.dataset.copy, button.dataset.copyMessage || "계좌번호를 복사했습니다.");
   });
 });
 

@@ -367,7 +367,7 @@ img {
 .event-summary strong {
   color: #8f878c;
   font-family: var(--font-body);
-  font-size: 1.22rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.25;
 }
@@ -582,10 +582,23 @@ img {
   text-align: center;
 }
 
-.venue-name {
-  color: var(--ink);
-  font-size: 1.02rem;
-  font-weight: 600;
+.location .venue-name {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: var(--ink) !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+}
+
+.location .venue-name strong {
+  color: var(--sage-dark) !important;
+  font-weight: 700 !important;
+}
+
+.location .venue-name span {
+  color: #c97886 !important;
+  font-weight: 600 !important;
 }
 
 .address-line {
@@ -601,6 +614,24 @@ img {
   min-width: 0;
 }
 
+.venue-tel {
+  display: block;
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(118, 90, 96, 0.28);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.venue-tel:visited,
+.venue-tel:hover,
+.venue-tel:active {
+  color: var(--muted);
+}
+
 .address-copy {
   width: 30px;
   height: 30px;
@@ -613,10 +644,8 @@ img {
 }
 
 .address-copy .copy-icon {
-  width: 15px;
-  height: 15px;
-  transform: scale(0.86);
-  transform-origin: center;
+  width: 18px;
+  height: 18px;
 }
 
 .map-preview {
@@ -652,20 +681,27 @@ img {
 
 .location-links {
   grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .location-links .outline-button {
+  flex-direction: column;
   gap: 6px;
-  min-height: 42px;
-  padding: 0 8px;
-  font-size: 0.82rem;
+  min-height: 74px;
+  padding: 10px 6px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: inset 0 0 0 1px rgba(160, 116, 123, 0.12),
+    0 10px 24px rgba(92, 70, 73, 0.055);
+  font-size: 0.78rem;
+  line-height: 1;
 }
 
 .location-links img {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   flex: 0 0 auto;
-  border-radius: 6px;
+  border-radius: 7px;
 }
 
 .transport-list {
@@ -674,13 +710,45 @@ img {
   margin: 22px 0 0;
 }
 
-.transport-list div {
+.transport-card {
   display: grid;
   gap: 7px;
   padding: 15px 16px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 10px 26px rgba(92, 70, 73, 0.045);
+}
+
+.transport-card--highlight {
+  gap: 10px;
+  border: 1px solid rgba(118, 90, 96, 0.18);
+  background: rgba(255, 250, 250, 0.92);
+}
+
+.transport-card--highlight dt {
+  justify-self: center;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: var(--sage-dark);
+  color: #ffffff !important;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.transport-card--highlight dd {
+  text-align: center !important;
+}
+
+.transport-card--highlight mark {
+  padding: 0 2px;
+  background: transparent;
+  color: var(--sage-dark);
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: rgba(216, 137, 150, 0.5);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .transport-list dt {
@@ -697,6 +765,65 @@ img {
   line-height: 1.6;
   text-align: left;
   word-break: keep-all;
+}
+
+.transport-list dd strong {
+  display: block;
+  color: var(--ink);
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+.transport-list dd span {
+  display: block;
+  margin-top: 5px;
+}
+
+.transport-list dd span .bus-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.transport-list dd span .bus-route:last-child {
+  margin-right: 0;
+}
+
+.transport-list dd strong + span,
+.transport-list dd span + strong {
+  margin-top: 7px;
+}
+
+.transport-list em {
+  display: inline-block;
+  margin: 0;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #639646;
+  color: #ffffff;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.transport-list .bus-badge--blue {
+  background: #4f64b5;
+}
+
+.transport-list .address-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  margin-right: 6px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--rose-soft);
+  color: var(--sage-dark);
+  font-size: 0.72rem;
+  line-height: 1.4;
 }
 
 .gallery-slider {
@@ -1118,14 +1245,14 @@ img {
 }
 
 .copy-icon::before {
-  left: 2px;
-  top: 4px;
+  left: 3px;
+  top: 5px;
   opacity: 0.56;
 }
 
 .copy-icon::after {
-  left: 6px;
-  top: 1px;
+  left: 5px;
+  top: 2px;
   background: var(--rose-soft);
 }
 
