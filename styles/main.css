@@ -655,17 +655,17 @@ img {
 }
 
 .location-links .outline-button {
-  gap: 5px;
+  gap: 6px;
   min-height: 42px;
   padding: 0 8px;
   font-size: 0.82rem;
 }
 
 .location-links img {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   flex: 0 0 auto;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .transport-list {

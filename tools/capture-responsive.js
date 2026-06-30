@@ -258,6 +258,20 @@ class CdpSocket {
     expression: "document.fonts ? document.fonts.ready : Promise.resolve()",
     awaitPromise: true,
   });
+  await cdp.send("Runtime.evaluate", {
+    expression: `new Promise((resolve) => {
+      const startedAt = Date.now();
+      const wait = () => {
+        if (!document.querySelector("[data-splash]") || Date.now() - startedAt > 6500) {
+          resolve();
+          return;
+        }
+        setTimeout(wait, 100);
+      };
+      wait();
+    })`,
+    awaitPromise: true,
+  });
 
   if (url.includes("#")) {
     const hash = new URL(url).hash.slice(1);
