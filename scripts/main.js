@@ -1,6 +1,7 @@
 const statusNode = document.querySelector("[data-status]");
 const pageTitle = document.querySelector('meta[property="og:title"]')?.content || document.title;
-const pageUrl = document.querySelector('meta[property="og:url"]')?.content || window.location.href;
+const ogUrl = document.querySelector('meta[property="og:url"]')?.content;
+const pageUrl = ogUrl && !ogUrl.includes("example.com") ? ogUrl : window.location.href;
 const weddingDate = new Date("2026-10-24T15:30:00+09:00").getTime();
 const venue = {
   name: "JK아트컨벤션 그랜드홀",
@@ -252,7 +253,7 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
     const appLink = link.dataset.appLink;
     const webLink = link.href;
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const shouldFallback = !link.hasAttribute("data-no-fallback");
+    const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (!appLink || !isMobile) {
       return;
@@ -260,13 +261,9 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
 
     event.preventDefault();
 
-    if (!shouldFallback) {
-      window.location.href = appLink;
-      return;
-    }
-
     const startedAt = Date.now();
     let didLeavePage = false;
+    let appFrame = null;
 
     const fallbackTimer = window.setTimeout(() => {
       if (didLeavePage || document.hidden || Date.now() - startedAt > 1800) {
@@ -274,11 +271,12 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
       }
 
       window.location.href = webLink;
-    }, 1300);
+    }, 1400);
 
     const cancelFallback = () => {
       didLeavePage = true;
       window.clearTimeout(fallbackTimer);
+      appFrame?.remove();
       document.removeEventListener("visibilitychange", cancelFallback);
       window.removeEventListener("blur", cancelFallback);
       window.removeEventListener("pagehide", cancelFallback);
@@ -287,6 +285,15 @@ document.querySelectorAll("[data-app-link]").forEach((link) => {
     document.addEventListener("visibilitychange", cancelFallback, { once: true });
     window.addEventListener("blur", cancelFallback, { once: true });
     window.addEventListener("pagehide", cancelFallback, { once: true });
+
+    if (isIos) {
+      appFrame = document.createElement("iframe");
+      appFrame.style.display = "none";
+      appFrame.src = appLink;
+      document.body.appendChild(appFrame);
+      return;
+    }
+
     window.location.href = appLink;
   });
 });
