@@ -30,6 +30,18 @@ npm run dev
 
 `Client Secret`은 프론트엔드에 넣지 않습니다.
 
+## Kakao Share
+
+맨 아래 공유 버튼은 Kakao JavaScript SDK의 카카오톡 공유를 사용합니다.
+
+- JavaScript 키는 `scripts/main.js`의 `kakaoJavaScriptKey`에 설정합니다.
+- Kakao Developers의 JavaScript SDK 도메인에 아래 주소를 등록합니다.
+  - `http://localhost:1354`
+  - `http://127.0.0.1:1354`
+  - `https://gwya.kro.kr`
+- 공유 URL과 대표 이미지는 `index.html`의 `og:url`, `og:image` 값을 사용합니다.
+- SDK 로드나 초기화에 실패하면 링크 복사로 fallback합니다.
+
 ## Images
 
 실제 사진을 넣을 때는 원본을 그대로 올리지 말고 WebP/AVIF로 리사이즈해서 `assets/`에 넣습니다.

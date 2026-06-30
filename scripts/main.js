@@ -2,6 +2,10 @@ const statusNode = document.querySelector("[data-status]");
 const pageTitle = document.querySelector('meta[property="og:title"]')?.content || document.title;
 const ogUrl = document.querySelector('meta[property="og:url"]')?.content;
 const pageUrl = ogUrl && !ogUrl.includes("example.com") ? ogUrl : window.location.href;
+const pageImage =
+  document.querySelector('meta[property="og:image"]')?.content ||
+  new URL("assets/hero/hero-1440.webp", pageUrl).href;
+const kakaoJavaScriptKey = "2badc8486cc2d27cbd00441e45a17460";
 const weddingDate = new Date("2026-10-24T15:30:00+09:00").getTime();
 const venue = {
   name: "JK아트컨벤션 그랜드홀",
@@ -227,20 +231,43 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
   });
 });
 
+function initKakaoShare() {
+  if (!window.Kakao) {
+    return false;
+  }
+
+  if (!Kakao.isInitialized()) {
+    Kakao.init(kakaoJavaScriptKey);
+  }
+
+  return Kakao.isInitialized() && Boolean(Kakao.Share);
+}
+
 document.querySelectorAll("[data-share]").forEach((button) => {
-  button.addEventListener("click", async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
+  button.addEventListener("click", () => {
+    if (initKakaoShare()) {
+      Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
           title: pageTitle,
-          text: "신관우와 이양아의 결혼식에 초대합니다.",
-          url: pageUrl,
-        });
-        setStatus("공유창을 열었습니다.");
-        return;
-      } catch {
-        return;
-      }
+          description: "2026년 10월 24일 토요일 오후 3시 30분 · JK아트컨벤션 그랜드홀",
+          imageUrl: pageImage,
+          link: {
+            mobileWebUrl: pageUrl,
+            webUrl: pageUrl,
+          },
+        },
+        buttons: [
+          {
+            title: "초대장 보기",
+            link: {
+              mobileWebUrl: pageUrl,
+              webUrl: pageUrl,
+            },
+          },
+        ],
+      });
+      return;
     }
 
     copyText(pageUrl, "초대장 링크를 복사했습니다.");
