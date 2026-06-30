@@ -1,2 +1,50 @@
-# gwya
-gwya wedding
+# Mobile Wedding Invitation
+
+Vanilla HTML/CSS/JavaScript 기반의 정적 모바일 청첩장입니다.
+
+## Structure
+
+- `index.html`: 페이지 마크업과 문구, 지도/공유/계좌 버튼
+- `styles/main.css`: 전체 디자인, 섹션별 스타일, 반응형 스타일
+- `scripts/main.js`: 지도, 복사 토스트, 지도앱 딥링크, 계좌 아코디언, 카운트다운, 갤러리
+- `assets/`: 히어로 이미지와 갤러리 이미지
+- `server.js`: 로컬 확인용 정적 파일 서버
+
+## Local Preview
+
+```bash
+npm run dev
+```
+
+같은 Wi-Fi의 모바일 기기에서는 맥의 로컬 IP와 포트 `1354`로 접속합니다.
+
+## Naver Dynamic Maps
+
+네이버 지도는 새로고침마다 사용량이 카운트되므로 개발 중에는 비활성화되어 있습니다.
+
+배포 전 다시 켤 때:
+
+1. `index.html` 하단의 네이버 지도 SDK 주석을 해제합니다.
+2. `scripts/main.js`의 `initNaverMap()` 호출 주석을 해제합니다.
+3. 네이버 클라우드 콘솔에서 실제 배포 도메인을 Web 서비스 URL에 등록합니다.
+
+`Client Secret`은 프론트엔드에 넣지 않습니다.
+
+## Images
+
+실제 사진을 넣을 때는 원본을 그대로 올리지 말고 WebP/AVIF로 리사이즈해서 `assets/`에 넣습니다.
+모바일 기준 긴 변 `1200~1600px`, 한 장당 `150~400KB` 정도를 권장합니다.
+
+원본 사진은 `gallery/`에 두고 아래 명령으로 최적화본을 다시 만들 수 있습니다.
+
+```bash
+./tools/optimize-gallery.sh
+```
+
+기본값은 긴 변 `1600px`, WebP 품질 `82`, 출력 폴더 `assets/gallery/`입니다.
+
+라이트박스 확대용 이미지는 조금 더 크게 생성합니다.
+
+```bash
+MAX_SIZE=3600 QUALITY=92 ./tools/optimize-gallery.sh gallery assets/gallery-large
+```

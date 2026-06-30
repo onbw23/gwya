@@ -1,0 +1,9 @@
+{
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "serve": "node server.js"
+  }
+}
