@@ -60,6 +60,62 @@ function initSplash() {
 
 initSplash();
 
+/* Scroll reveals */
+function initReveals() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealGroups = [
+    [".section", 0],
+    [".details .event-summary > *", 90],
+    [".details .calendar-head", 150],
+    [".details .calendar-weekdays", 210],
+    [".details .calendar-days", 270],
+    [".details .countdown", 330],
+    [".location .map-preview", 120],
+    [".gallery .gallery-slide:first-child img", 120],
+    [".accounts .account-group", 120],
+    [".share .button-row", 120],
+  ];
+  const revealItems = [];
+
+  revealGroups.forEach(([selector, baseDelay]) => {
+    document.querySelectorAll(selector).forEach((element, index) => {
+      element.dataset.reveal = "";
+      element.style.setProperty("--reveal-delay", `${baseDelay + index * 70}ms`);
+      revealItems.push(element);
+    });
+  });
+
+  if (revealItems.length === 0) {
+    return;
+  }
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      rootMargin: "0px 0px -12% 0px",
+      threshold: 0.12,
+    },
+  );
+
+  revealItems.forEach((element) => observer.observe(element));
+}
+
+initReveals();
+
 /* Naver map */
 function initNaverMap() {
   const mapNode = document.querySelector("[data-naver-map]");

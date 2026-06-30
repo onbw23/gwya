@@ -164,7 +164,17 @@
           <p class="section-kicker">Location</p>
           <h2 id="location-title">오시는길</h2>
           <p class="venue-name">JK아트컨벤션 그랜드홀</p>
-          <p class="address">서울 영등포구 문래로 164 SK리더스뷰 4층</p>
+          <div class="address-line">
+            <p class="address">서울 영등포구 문래로 164 SK리더스뷰 4층</p>
+            <button
+              class="address-copy icon-button"
+              type="button"
+              data-copy="서울 영등포구 문래로 164 SK리더스뷰 4층 JK아트컨벤션"
+              aria-label="주소 복사"
+            >
+              <span class="copy-icon" aria-hidden="true"></span>
+            </button>
+          </div>
           <div
             class="map-preview"
             data-naver-map
@@ -179,6 +189,7 @@
               target="_blank"
               rel="noreferrer"
             >
+              <img src="assets/icons/naver-map.svg" alt="" aria-hidden="true" />
               네이버지도
             </a>
             <a
@@ -187,6 +198,7 @@
               target="_blank"
               rel="noreferrer"
             >
+              <img src="assets/icons/tmap.svg" alt="" aria-hidden="true" />
               티맵
             </a>
             <a
@@ -195,16 +207,17 @@
               target="_blank"
               rel="noreferrer"
             >
+              <img src="assets/icons/kakao-map.svg" alt="" aria-hidden="true" />
               카카오맵
             </a>
           </div>
           <dl class="transport-list">
             <div>
-              <dt>지하철</dt>
+              <dt><span aria-hidden="true">🚇</span> 지하철</dt>
               <dd>문래역 인근, 상세 동선은 지도앱을 확인해 주세요</dd>
             </div>
             <div>
-              <dt>주차</dt>
+              <dt><span aria-hidden="true">🅿️</span> 주차</dt>
               <dd>SK리더스뷰 주차장 이용</dd>
             </div>
           </dl>
@@ -212,7 +225,7 @@
 
         <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
           <p class="section-kicker">Gallery</p>
-          <h2 id="gallery-title">사랑이 머문 장면들</h2>
+          <h2 id="gallery-title">우리를 담은 순간</h2>
           <div class="gallery-slider" data-gallery>
             <div class="gallery-track" data-gallery-track tabindex="0" aria-label="웨딩 사진 슬라이드">
               <figure class="gallery-slide">
