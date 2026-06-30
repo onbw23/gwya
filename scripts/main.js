@@ -247,57 +247,6 @@ document.querySelectorAll("[data-share]").forEach((button) => {
   });
 });
 
-/* Map app deep links */
-document.querySelectorAll("[data-app-link]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const appLink = link.dataset.appLink;
-    const webLink = link.href;
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-    if (!appLink || !isMobile) {
-      return;
-    }
-
-    event.preventDefault();
-
-    const startedAt = Date.now();
-    let didLeavePage = false;
-    let appFrame = null;
-
-    const fallbackTimer = window.setTimeout(() => {
-      if (didLeavePage || document.hidden || Date.now() - startedAt > 1800) {
-        return;
-      }
-
-      window.location.href = webLink;
-    }, 1400);
-
-    const cancelFallback = () => {
-      didLeavePage = true;
-      window.clearTimeout(fallbackTimer);
-      appFrame?.remove();
-      document.removeEventListener("visibilitychange", cancelFallback);
-      window.removeEventListener("blur", cancelFallback);
-      window.removeEventListener("pagehide", cancelFallback);
-    };
-
-    document.addEventListener("visibilitychange", cancelFallback, { once: true });
-    window.addEventListener("blur", cancelFallback, { once: true });
-    window.addEventListener("pagehide", cancelFallback, { once: true });
-
-    if (isIos) {
-      appFrame = document.createElement("iframe");
-      appFrame.style.display = "none";
-      appFrame.src = appLink;
-      document.body.appendChild(appFrame);
-      return;
-    }
-
-    window.location.href = appLink;
-  });
-});
-
 /* Account accordions */
 document.querySelectorAll(".account-group").forEach((group) => {
   const summary = group.querySelector("summary");
