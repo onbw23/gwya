@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&family=Gowun+Batang&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/main.css?v=20260706-3" />
+    <link rel="stylesheet" href="styles/main.css?v=20260706-5" />
   </head>
   <body class="is-splashing">
     <div class="splash" data-splash aria-label="인트로">
@@ -253,17 +253,23 @@
             </div>
             <div class="transport-card">
               <dt><span aria-hidden="true">🚌</span> 버스</dt>
-              <dd>
-                <strong>문래역 정류장 하차</strong>
-                <span>
-                  <span class="bus-route"><em>지선</em> 6211, 6625</span>
-                  <span class="bus-route"><em class="bus-badge--blue">간선</em> 641</span>
-                  <span class="bus-route"><em>마을</em> 영등포12</span>
-                </span>
-                <strong>문래주민센터 / 영일시장·록스 정류장 하차</strong>
-                <span><span class="bus-route"><em>마을</em> 영등포05</span></span>
-                <strong>벽산메가트리움APT 정류장 하차</strong>
-                <span><span class="bus-route"><em>지선</em> 6516</span></span>
+              <dd class="transport-route-list">
+                <div class="transport-route-group">
+                  <strong>문래역 정류장 하차</strong>
+                  <span>
+                    <span class="bus-route"><em>지선</em> 6211, 6625</span>
+                    <span class="bus-route"><em class="bus-badge--blue">간선</em> 641</span>
+                    <span class="bus-route"><em>마을</em> 영등포12</span>
+                  </span>
+                </div>
+                <div class="transport-route-group">
+                  <strong>문래주민센터 / 영일시장·록스 정류장 하차</strong>
+                  <span><span class="bus-route"><em>마을</em> 영등포05</span></span>
+                </div>
+                <div class="transport-route-group">
+                  <strong>벽산메가트리움APT 정류장 하차</strong>
+                  <span><span class="bus-route"><em>지선</em> 6516</span></span>
+                </div>
               </dd>
             </div>
             <div class="transport-card">
@@ -516,6 +522,6 @@
     </div>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9hiukrisb6"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js" crossorigin="anonymous"></script>
-    <script src="scripts/main.js?v=20260706-2"></script>
+    <script src="scripts/main.js?v=20260706-3"></script>
   </body>
 </html>

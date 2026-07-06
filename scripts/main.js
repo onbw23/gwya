@@ -20,6 +20,18 @@ let lightboxDrag = null;
 let lightboxPinch = null;
 let lightboxSwipe = null;
 let lightboxScrollY = 0;
+const preloadedImages = new Set();
+
+function preloadImage(src) {
+  if (!src || preloadedImages.has(src)) {
+    return;
+  }
+
+  preloadedImages.add(src);
+  const image = new Image();
+  image.decoding = "async";
+  image.src = src;
+}
 
 document.addEventListener("dragstart", (event) => {
   if (event.target.closest("button, a, .lightbox, .splash")) {
@@ -492,6 +504,18 @@ function renderLightbox() {
   }
 
   resetLightboxZoom();
+  preloadLightboxNeighbors();
+}
+
+function preloadLightboxNeighbors() {
+  if (lightboxItems.length < 2) {
+    return;
+  }
+
+  [-1, 1].forEach((offset) => {
+    const item = lightboxItems[(lightboxIndex + offset + lightboxItems.length) % lightboxItems.length];
+    preloadImage(item?.src);
+  });
 }
 
 function openLightbox(index) {
@@ -602,9 +626,20 @@ document.querySelectorAll("[data-gallery]").forEach((gallery) => {
   }
 
   function updateCounter() {
+    const currentIndex = getCurrentIndex();
+
     if (current) {
-      current.textContent = String(getCurrentIndex() + 1);
+      current.textContent = String(currentIndex + 1);
     }
+
+    preloadGalleryNeighbors(currentIndex);
+  }
+
+  function preloadGalleryNeighbors(index) {
+    [index, index + 1, index + 2].forEach((nextIndex) => {
+      const image = images[nextIndex];
+      preloadImage(image?.currentSrc || image?.src);
+    });
   }
 
   function move(direction) {

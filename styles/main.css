@@ -831,6 +831,37 @@ img {
   font-weight: 600;
 }
 
+.transport-card .transport-route-list {
+  padding-left: 0;
+}
+
+.transport-card--highlight dd {
+  padding-left: 0;
+}
+
+.transport-card--highlight dd::before {
+  display: none;
+}
+
+.transport-route-group {
+  position: relative;
+  padding-left: 13px;
+}
+
+.transport-route-group + .transport-route-group {
+  margin-top: 14px;
+}
+
+.transport-route-group::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  width: 1px;
+  background: rgba(216, 137, 150, 0.24);
+}
+
 .transport-list dd span {
   display: block;
   margin-top: 5px;
@@ -848,9 +879,12 @@ img {
   margin-right: 0;
 }
 
-.transport-list dd strong + span,
+.transport-list dd strong + span {
+  margin-top: 2px;
+}
+
 .transport-list dd span + strong {
-  margin-top: 7px;
+  margin-top: 14px;
 }
 
 .transport-list em {
