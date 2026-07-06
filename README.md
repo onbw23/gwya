@@ -1,6 +1,6 @@
 # Mobile Wedding Invitation
 
-Vanilla HTML/CSS/JavaScript 기반의 정적 모바일 청첩장입니다.
+Vanilla HTML/CSS/JavaScript 기반의 정적 모바일 청첩장입니다. 
 
 ## Structure
 
