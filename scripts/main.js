@@ -244,9 +244,7 @@ window.visualViewport?.addEventListener("scroll", () => {
 
 syncVisualViewport();
 
-// TODO: 배포 전 index.html의 네이버 지도 SDK 로딩 주석을 해제한 뒤 다시 활성화한다.
-// 새로고침마다 Dynamic Maps 사용량이 카운트되므로 개발 중에는 호출하지 않는다.
-// initNaverMap();
+initNaverMap();
 
 /* Clipboard */
 function fallbackCopy(text) {

@@ -28,8 +28,8 @@
     />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
-  <body class="is-splashing">
-    <div class="splash" data-splash aria-label="인트로">
+  <body>
+    <div class="splash" aria-label="인트로" hidden>
       <svg class="splash__title" viewBox="0 0 420 160" role="img" aria-label="우리 결혼합니다">
         <text class="splash__stroke splash__stroke--first" x="50%" y="64" text-anchor="middle">
           우리
@@ -74,9 +74,29 @@
             함께라서 더 따뜻했던 시간들을 지나 저희 두 사람이 부부로 첫걸음을 내딛습니다.
             귀한 걸음으로 축복해 주시면 오래도록 마음에 간직하겠습니다.
           </p>
-          <div class="parents" aria-label="혼주 정보">
-            <p>신경엽 · 최경화의 장남 <strong>관우</strong></p>
-            <p>이세욱 · 이종옥의 장녀 <strong>양아</strong></p>
+          <div class="parents" aria-label="신랑 신부와 혼주 정보">
+            <article class="person-card">
+              <img
+                class="person-card__image person-card__image--groom"
+                src="assets/person/groom-720.jpg"
+                alt="신랑 관우 사진"
+                width="720"
+                height="1080"
+                loading="lazy"
+              />
+              <p>신경엽 · 최경화의 장남 <strong>관우</strong></p>
+            </article>
+            <article class="person-card">
+              <img
+                class="person-card__image person-card__image--bride"
+                src="assets/person/bride-720.jpg"
+                alt="신부 양아 사진"
+                width="720"
+                height="1080"
+                loading="lazy"
+              />
+              <p>이세욱 · 이종옥의 장녀 <strong>양아</strong></p>
+            </article>
           </div>
         </section>
 
@@ -464,7 +484,10 @@
           </div>
         </section>
 
-        <p class="closing">2026.10.24<br />관우 · 양아 올림</p>
+        <div class="closing">
+          <p>2026.10.24<br />관우 · 양아 올림</p>
+          <p class="credit">Carefully made by GwanWoo</p>
+        </div>
       </main>
 
     </div>
@@ -491,11 +514,7 @@
         </div>
       </div>
     </div>
-    <!--
-      TODO: 배포 전 네이버 Dynamic Maps를 다시 활성화.
-      새로고침마다 API 사용량이 카운트되므로 개발 중에는 SDK 로딩을 주석 처리한다.
-      <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9hiukrisb6"></script>
-    -->
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9hiukrisb6"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js" crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
   </body>

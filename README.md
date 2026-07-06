@@ -20,13 +20,9 @@ npm run dev
 
 ## Naver Dynamic Maps
 
-네이버 지도는 새로고침마다 사용량이 카운트되므로 개발 중에는 비활성화되어 있습니다.
+네이버 Dynamic Maps가 오시는길 섹션에서 활성화되어 있습니다.
 
-배포 전 다시 켤 때:
-
-1. `index.html` 하단의 네이버 지도 SDK 주석을 해제합니다.
-2. `scripts/main.js`의 `initNaverMap()` 호출 주석을 해제합니다.
-3. 네이버 클라우드 콘솔에서 실제 배포 도메인을 Web 서비스 URL에 등록합니다.
+배포 전 네이버 클라우드 콘솔에서 실제 배포 도메인을 Web 서비스 URL에 등록합니다.
 
 `Client Secret`은 프론트엔드에 넣지 않습니다.
 
