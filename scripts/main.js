@@ -71,7 +71,7 @@ function initReveals() {
     [".details .calendar-days", 270],
     [".details .countdown", 330],
     [".location .map-preview", 120],
-    [".gallery .gallery-slide:first-child img", 120],
+    [".gallery .gallery-track", 120],
     [".accounts .account-group", 120],
     [".share .button-row", 120],
   ];

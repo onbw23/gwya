@@ -268,9 +268,7 @@ img {
 .section {
   padding: 52px var(--page-x);
   border-bottom: 0;
-  background-color: #fffdfb;
-  background-image: var(--paper-texture);
-  background-size: var(--paper-texture-size);
+  background: transparent;
 }
 
 .section,
@@ -280,7 +278,7 @@ img {
 .calendar-days,
 .countdown,
 .map-preview,
-.gallery-slide img,
+.gallery-track,
 .account-group,
 .share .button-row {
   transition: opacity 720ms ease, transform 720ms ease;
@@ -294,7 +292,7 @@ img {
 .calendar-days[data-reveal],
 .countdown[data-reveal],
 .map-preview[data-reveal],
-.gallery-slide img[data-reveal],
+.gallery-track[data-reveal],
 .account-group[data-reveal],
 .share .button-row[data-reveal] {
   opacity: 0;
@@ -308,7 +306,7 @@ img {
 .calendar-days.is-visible,
 .countdown.is-visible,
 .map-preview.is-visible,
-.gallery-slide img.is-visible,
+.gallery-track.is-visible,
 .account-group.is-visible,
 .share .button-row.is-visible {
   opacity: 1;
@@ -383,9 +381,7 @@ img {
 }
 
 .details {
-  background-color: #fffdfb;
-  background-image: var(--paper-texture);
-  background-size: var(--paper-texture-size);
+  background: transparent;
 }
 
 /* Schedule */
@@ -1020,11 +1016,11 @@ img {
   -webkit-user-select: none;
 }
 
-.gallery-slide img[data-reveal] {
+.gallery-track[data-reveal] {
   transform: translateY(18px) scale(0.985);
 }
 
-.gallery-slide img.is-visible {
+.gallery-track.is-visible {
   transform: translateY(0) scale(1);
 }
 
@@ -1452,7 +1448,7 @@ img {
   .calendar-days,
   .countdown,
   .map-preview,
-  .gallery-slide img,
+  .gallery-track,
   .account-group,
   .share .button-row {
     opacity: 1 !important;
