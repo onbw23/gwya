@@ -919,6 +919,7 @@ img {
 }
 
 .gallery-slider {
+  position: relative;
   margin-top: 24px;
 }
 
@@ -973,19 +974,14 @@ img {
 }
 
 .chevron-icon {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid currentColor;
-  border-right: 2px solid currentColor;
-}
-
-.chevron-icon--left {
-  transform: rotate(-135deg) translate(-1px, -1px);
-}
-
-.chevron-icon--right {
-  transform: rotate(45deg) translate(-1px, 1px);
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .expand-icon {
@@ -1057,6 +1053,104 @@ img {
 
 .gallery-track.is-visible {
   transform: translateY(0) scale(1);
+}
+
+.swipe-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 62px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 118px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 253, 251, 0.82);
+  color: rgba(118, 90, 96, 0.82);
+  box-shadow: 0 10px 24px rgba(52, 37, 41, 0.12);
+  opacity: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.swipe-hint__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.swipe-hint.is-active,
+.lightbox.is-open .swipe-hint--lightbox {
+  animation: swipe-hint-fade 4200ms ease-in-out 1 forwards;
+}
+
+.swipe-hint.is-active .swipe-hint__dot,
+.lightbox.is-open .swipe-hint--lightbox .swipe-hint__dot {
+  animation: swipe-hint-dot 1400ms ease-in-out 3 forwards;
+}
+
+.swipe-hint__chevron {
+  width: 8px;
+  height: 8px;
+  border-top: 1.8px solid currentColor;
+  border-right: 1.8px solid currentColor;
+  opacity: 0.72;
+}
+
+.swipe-hint__chevron--left {
+  transform: rotate(-135deg);
+}
+
+.swipe-hint__chevron--right {
+  transform: rotate(45deg);
+}
+
+.swipe-hint--lightbox {
+  bottom: 18px;
+  background: rgba(255, 253, 251, 0.88);
+  color: rgba(118, 90, 96, 0.9);
+}
+
+.swipe-hint__label {
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 100%;
+  color: currentColor;
+  font-size: 0.63rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+@keyframes swipe-hint-dot {
+  0%,
+  100% {
+    transform: translateX(-12px);
+    opacity: 0.72;
+  }
+
+  50% {
+    transform: translateX(12px);
+    opacity: 1;
+  }
+}
+
+@keyframes swipe-hint-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  12%,
+  82% {
+    opacity: 1;
+  }
 }
 
 /* Lightbox */
@@ -1505,6 +1599,11 @@ img {
 
   .toast {
     transition: none;
+  }
+
+  .swipe-hint,
+  .swipe-hint__dot {
+    animation: none;
   }
 
   .section,

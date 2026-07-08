@@ -103,6 +103,11 @@ function initReveals() {
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealItems.forEach((element) => element.classList.add("is-visible"));
+    if (!reduceMotion) {
+      document.querySelectorAll("[data-gallery] .swipe-hint").forEach((hint) => {
+        hint.classList.add("is-active");
+      });
+    }
     return;
   }
 
@@ -114,6 +119,9 @@ function initReveals() {
         }
 
         entry.target.classList.add("is-visible");
+        if (entry.target.matches(".gallery-track")) {
+          entry.target.closest("[data-gallery]")?.querySelector(".swipe-hint")?.classList.add("is-active");
+        }
         observer.unobserve(entry.target);
       });
     },
