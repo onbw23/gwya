@@ -623,6 +623,7 @@ img {
 
 /* Location */
 .gallery,
+.accounts,
 .share {
   text-align: center;
 }
@@ -1231,12 +1232,41 @@ img {
 }
 
 .account-group {
+  --account-heading: var(--ink);
   margin-top: 10px;
   overflow: hidden;
   border: 0;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 10px 26px rgba(92, 70, 73, 0.055);
+}
+
+.account-group--groom {
+  --account-heading: #7fa8d6;
+}
+
+.account-group--bride {
+  --account-heading: #e5a4ae;
+}
+
+.account-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.account-note span {
+  display: block;
+}
+
+.account-note__closing {
+  margin-top: 8px;
+}
+
+.account-note + .account-group {
+  margin-top: 18px;
 }
 
 .account-group summary {
@@ -1258,9 +1288,10 @@ img {
 }
 
 .account-group summary span {
-  color: var(--ink);
+  color: var(--account-heading);
   font-size: 0.98rem;
   font-weight: 600;
+  text-align: left;
 }
 
 .account-group summary::after {
@@ -1287,6 +1318,7 @@ img {
 .account-row > div {
   display: grid;
   gap: 5px;
+  text-align: left;
 }
 
 .account-row p {
