@@ -72,6 +72,28 @@ function initSplash() {
 
 initSplash();
 
+function initHeroScrollHint() {
+  const hint = document.querySelector("[data-hero-scroll-hint]");
+
+  if (!hint) {
+    return;
+  }
+
+  const hideHint = () => {
+    hint.classList.add("is-hidden");
+    window.removeEventListener("scroll", hideHint);
+  };
+
+  if (window.scrollY > 8) {
+    hideHint();
+    return;
+  }
+
+  window.addEventListener("scroll", hideHint, { passive: true });
+}
+
+initHeroScrollHint();
+
 /* Scroll reveals */
 function initReveals() {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
