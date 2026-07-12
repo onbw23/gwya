@@ -184,7 +184,7 @@ img {
 .invitation {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 6rem;
   width: 100%;
   max-width: 480px;
   min-height: 100svh;
@@ -411,7 +411,7 @@ img {
 .section h2 {
   margin: 0.75rem 0 1.125rem;
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.45;
 }
@@ -1722,7 +1722,7 @@ img {
   }
 
   .section h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
 }
