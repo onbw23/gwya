@@ -184,6 +184,7 @@ img {
 .invitation {
   display: flex;
   flex-direction: column;
+  gap: 4rem;
   width: 100%;
   max-width: 480px;
   min-height: 100svh;
@@ -1447,7 +1448,7 @@ img {
 }
 
 .intro-message + .account-group {
-  margin-top: 18px;
+  margin-top: 36px;
 }
 
 .account-group summary {
