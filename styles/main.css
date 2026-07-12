@@ -18,7 +18,7 @@
     repeating-linear-gradient(96deg, rgba(118, 90, 96, 0.018) 0 1px, transparent 1px 5px),
     linear-gradient(115deg, rgba(255, 255, 255, 0.58), rgba(241, 224, 216, 0.2) 42%, rgba(255, 250, 250, 0.36));
   --paper-texture-size: 19px 19px, 27px 27px, 8px 8px, 100% 100%;
-  --page-x: 1.375rem;
+  --page-x: 2.375rem;
   --font-body: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Pretendard", "Segoe UI", sans-serif;
   --font-serif: "Gowun Batang", "AppleMyungjo", "Nanum Myeongjo", serif;
