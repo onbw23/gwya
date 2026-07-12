@@ -346,7 +346,7 @@ document.querySelectorAll("[data-share]").forEach((button) => {
         objectType: "feed",
         content: {
           title: pageTitle,
-          description: "2026년 10월 24일 토요일 오후 3시 30분 · JK아트컨벤션 그랜드홀",
+          description: "2026년 10월 24일 토요일 3시 30분 · JK아트컨벤션 그랜드홀",
           imageUrl: pageImage,
           link: {
             mobileWebUrl: pageUrl,

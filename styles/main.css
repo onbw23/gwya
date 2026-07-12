@@ -473,7 +473,7 @@ img {
   color: #d88996;
   font-family: var(--font-body);
   font-size: 1.7rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.1;
   text-transform: uppercase;
 }
@@ -482,8 +482,8 @@ img {
   color: #8f878c;
   font-family: var(--font-body);
   font-size: 1.3rem;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 .countdown {
