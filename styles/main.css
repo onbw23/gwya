@@ -182,6 +182,8 @@ img {
 }
 
 .invitation {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 480px;
   min-height: 100svh;
@@ -190,6 +192,38 @@ img {
   background-image: var(--paper-texture);
   background-size: var(--paper-texture-size);
   box-shadow: var(--shadow);
+}
+
+.hero {
+  order: 1;
+}
+
+.intro {
+  order: 2;
+}
+
+.details {
+  order: 3;
+}
+
+.gallery {
+  order: 4;
+}
+
+.location {
+  order: 5;
+}
+
+.accounts {
+  order: 6;
+}
+
+.share {
+  order: 7;
+}
+
+.closing {
+  order: 8;
 }
 
 /* Hero */
