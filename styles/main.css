@@ -333,6 +333,15 @@ img {
   text-align: center;
 }
 
+.intro > p:not(.section-kicker) {
+  line-height: 1.6;
+}
+
+.intro-message {
+  display: grid;
+  gap: 16px;
+}
+
 /* Intro */
 .parents {
   display: grid;
