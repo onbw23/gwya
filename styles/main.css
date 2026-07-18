@@ -1137,6 +1137,8 @@ img {
 }
 
 .gallery-slide {
+  display: flex;
+  align-items: center;
   flex: 0 0 calc(100% - 1.125rem);
   margin: 0;
   scroll-snap-align: start;
@@ -1144,8 +1146,7 @@ img {
 
 .gallery-slide img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  height: auto;
   border-radius: 18px;
   background: #fffafa;
   box-shadow: 0 14px 34px rgba(92, 70, 73, 0.06);
