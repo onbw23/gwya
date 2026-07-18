@@ -26,7 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&family=Gowun+Batang&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/main.css?v=20260718-1" />
+    <link rel="stylesheet" href="styles/main.css?v=20260718-2" />
   </head>
   <body class="is-splashing">
     <div class="splash" data-splash aria-label="인트로">
@@ -531,6 +531,20 @@
 
     </div>
     <p class="sr-only" aria-live="polite" data-status></p>
+    <div class="floating-actions" aria-label="빠른 메뉴">
+      <button class="floating-action" type="button" data-share aria-label="공유하기">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M18 8a3 3 0 1 0-2.83-4A3 3 0 0 0 15 5c0 .18.02.36.05.53l-6.1 3.4A3 3 0 0 0 7 8a3 3 0 1 0 1.95 5.27l6.1 3.4A3 3 0 0 0 15 17a3 3 0 1 0 .95-2.18l-6.1-3.4c.1-.3.15-.62.15-.95s-.05-.65-.15-.95l6.1-3.4A3 3 0 0 0 18 8Z" />
+        </svg>
+        <span>공유하기</span>
+      </button>
+      <button class="floating-action" type="button" data-scroll-top aria-label="맨위로">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m6 14 6-6 6 6M12 8v10" />
+        </svg>
+        <span>맨위로</span>
+      </button>
+    </div>
     <div class="lightbox" data-lightbox aria-hidden="true">
       <div class="lightbox__backdrop" data-lightbox-close></div>
       <div class="lightbox__dialog" role="dialog" aria-modal="true" aria-label="웨딩 사진 크게 보기">
@@ -565,6 +579,6 @@
     </div>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9hiukrisb6"></script>
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.1/kakao.min.js" crossorigin="anonymous"></script>
-    <script src="scripts/main.js?v=20260712-2"></script>
+    <script src="scripts/main.js?v=20260718-1"></script>
   </body>
 </html>

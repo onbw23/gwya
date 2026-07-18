@@ -159,6 +159,61 @@ img {
   transition: opacity 820ms ease, transform 820ms ease;
 }
 
+.floating-actions {
+  position: fixed;
+  right: max(0.875rem, env(safe-area-inset-right));
+  bottom: max(0.875rem, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.floating-action {
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.25rem;
+  padding: 0.35rem;
+  border: 1px solid rgba(160, 116, 123, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 250, 250, 0.94);
+  color: var(--sage-dark);
+  box-shadow: 0 8px 22px rgba(92, 70, 73, 0.14);
+  font: inherit;
+  font-size: 0.58rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.floating-action svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.floating-action:first-child svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.floating-action:hover,
+.floating-action:focus-visible {
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(92, 70, 73, 0.2);
+  transform: translateY(-2px);
+}
+
+.floating-action:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+
 @keyframes writeText {
   to {
     stroke-dashoffset: 0;

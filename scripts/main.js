@@ -327,6 +327,15 @@ document.querySelectorAll("[data-copy-link]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-scroll-top]").forEach((button) => {
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  });
+});
+
 function initKakaoShare() {
   if (!window.Kakao) {
     return false;
