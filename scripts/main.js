@@ -43,10 +43,27 @@ document.addEventListener("dragstart", (event) => {
 function initSplash() {
   const splash = document.querySelector("[data-splash]");
   const splashScrollY = window.scrollY;
+  const splashSeenKey = "gwya-splash-seen";
 
   if (!splash) {
     document.body.classList.remove("is-splashing");
     return;
+  }
+
+  try {
+    const storedSplash = JSON.parse(sessionStorage.getItem(splashSeenKey) || "null");
+
+    if (storedSplash?.expiresAt > Date.now()) {
+      splash.remove();
+      document.body.classList.remove("is-splashing");
+      return;
+    }
+
+    const now = new Date();
+    const expiresAt = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime();
+    sessionStorage.setItem(splashSeenKey, JSON.stringify({ expiresAt }));
+  } catch {
+    // Continue with the splash when storage is unavailable.
   }
 
   document.body.style.top = `-${splashScrollY}px`;
