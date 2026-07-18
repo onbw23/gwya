@@ -603,6 +603,8 @@ function closeLightbox() {
     return;
   }
 
+  const sourceItem = lightboxItems[lightboxIndex];
+
   const previousScrollBehavior = document.documentElement.style.scrollBehavior;
 
   lightbox.classList.remove("is-open");
@@ -616,6 +618,10 @@ function closeLightbox() {
   window.scrollTo(0, lightboxScrollY);
   requestAnimationFrame(() => {
     document.documentElement.style.scrollBehavior = previousScrollBehavior;
+  });
+  sourceItem?.galleryTrack?.scrollTo({
+    left: sourceItem.gallerySlide?.offsetLeft || 0,
+    behavior: "auto",
   });
   resetLightboxZoom();
 }
@@ -665,6 +671,8 @@ document.querySelectorAll("[data-gallery]").forEach((gallery) => {
     lightboxItems.push({
       src: image.dataset.full || image.currentSrc || image.src,
       alt: image.alt || `웨딩 사진 ${index + 1}`,
+      galleryTrack: track,
+      gallerySlide: slides[index],
     });
 
     image.addEventListener("click", () => openLightbox(lightboxStartIndex + index));
@@ -680,6 +688,19 @@ document.querySelectorAll("[data-gallery]").forEach((gallery) => {
   function getCurrentIndex() {
     return Math.min(slides.length - 1, Math.max(0, Math.round(track.scrollLeft / getStep())));
   }
+
+  track.addEventListener(
+    "touchstart",
+    (event) => {
+      if (event.touches.length < 2) {
+        return;
+      }
+
+      event.preventDefault();
+      openLightbox(lightboxStartIndex + getCurrentIndex());
+    },
+    { passive: false },
+  );
 
   function updateCounter() {
     const currentIndex = getCurrentIndex();
